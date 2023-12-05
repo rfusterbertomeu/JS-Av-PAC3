@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import * as UserAction from '../../actions';
@@ -13,7 +14,7 @@ import { UserDTO } from '../../models/user.dto';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
   profileUser: UserDTO;

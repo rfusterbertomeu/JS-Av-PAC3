@@ -12,7 +12,8 @@ import { CategoryDTO } from '../../models/category.dto';
 })
 export class CategoriesListComponent {
   categories: CategoryDTO[];
-
+  columnes: string[] =  ['id', 'title', 'description', 'css_color', 'actions'];
+ 
   private userId: string;
   constructor(private router: Router, private store: Store<AppState>) {
     this.userId = '';

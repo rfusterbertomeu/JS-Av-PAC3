@@ -1,0 +1,31 @@
+<div class="container mt-2 mb-2">
+  <div class="row">
+    <div class="col">
+      <app-todo-list-item
+        [todo]="todo"
+        *ngFor="let todo of todos"
+      ></app-todo-list-item>
+    </div>
+  </div>
+  <div *ngIf="showActionBtns">
+    <div class="col">
+      <button
+        (click)="completeAllTasks()"
+        class="btn btn-success ml-2"
+        type="button"
+        style="width: 50%"
+      >
+        Set All Tasks as Complete
+      </button>
+
+      <button
+        (click)="deleteCompletedTasks()"
+        class="btn btn-danger ml-2"
+        type="button"
+        style="width: 50%"
+      >
+        Delete All Completed Tasks
+      </button>
+    </div>
+  </div>
+</div>

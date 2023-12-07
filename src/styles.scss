@@ -5,24 +5,37 @@ body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  position: relative; 
 }
-
+h2{
+  text-align: center;
+}
 .container-uoc {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 30px;
+  z-index: 1; 
+  position: relative; 
+}
+.container-seccio{
+  margin-inline:20vw;
 }
 
-mat-spinner {
+.container-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1000; 
 }
+

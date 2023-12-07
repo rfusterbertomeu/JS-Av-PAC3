@@ -29,7 +29,7 @@ export class CategoryFormComponent implements OnInit {
   private categoryId: string | null;
 
   private userId: string;
-
+ 
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,

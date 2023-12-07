@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
   isValidForm: boolean | null;
 
   private userId: string;
-
+ 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>

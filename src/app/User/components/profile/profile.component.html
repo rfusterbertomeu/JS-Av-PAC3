@@ -94,8 +94,7 @@
     <section>
       <mat-form-field appearance="fill">
         <mat-label>Password:</mat-label>
-        <input matInput type="password" [formControl]="password" />
-
+        <input matInput [formControl]="password" />
         <mat-error *ngIf="password.errors && isValidForm != null && !isValidForm && password.errors.minlength">
           Password must be at least 8 characters long.
         </mat-error>

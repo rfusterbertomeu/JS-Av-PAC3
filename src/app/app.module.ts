@@ -18,7 +18,8 @@ import { UserModule } from './User/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './Shared/Components/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SpinnerComponent],
 
@@ -43,7 +44,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
       logOnly: environment.production,
     }),
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [
     {

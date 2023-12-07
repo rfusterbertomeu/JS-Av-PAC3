@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   email: FormControl;
   password: FormControl;
   loginForm: FormGroup;
-
+ 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>

@@ -20,8 +20,15 @@ import { SpinnerComponent } from './Shared/Components/spinner/spinner.component'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CardComponent } from './Shared/Components/card/card.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+import { FormatDatePipe } from './Shared/Pipes/format-date.pipe';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SpinnerComponent],
+  declarations: [AppComponent, HeaderComponent, SpinnerComponent, CardComponent,
+    FormatDatePipe],
 
   imports: [
     BrowserModule,
@@ -46,7 +53,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    MatBadgeModule
   ],
   providers: [
     {

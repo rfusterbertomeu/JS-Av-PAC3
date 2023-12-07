@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
+import { Color } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-dashboard',

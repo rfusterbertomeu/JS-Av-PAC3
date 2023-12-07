@@ -14,6 +14,7 @@ import { PostService } from '../../services/post.service';
 })
 export class HomeComponent {
   posts: PostDTO[];
+ 
   showButtons: boolean;
 
   private userId: string;

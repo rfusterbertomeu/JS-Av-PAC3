@@ -1,9 +1,7 @@
-<div *ngIf="posts">
-  <p>Num likes: {{ numLikes }}</p>
-  <p>Num dislikes: {{ numDislikes }}</p>
-  <ngx-charts-bar-vertical [view]="[1000,400]" [results]="dades" [legendTitle]="'Product Sale Chart'"
-    [yAxisLabel]="'Quantitat'" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true"
-    [gradient]="true">
+<div class="container-uoc" *ngIf="posts">
+  <h2>Dashboard</h2>
+  <ngx-charts-bar-vertical [view]="[1000,400]" [results]="dades" [yAxisLabel]="'Quantitat'" [showXAxisLabel]="true"
+    [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
     >
   </ngx-charts-bar-vertical>
 </div>

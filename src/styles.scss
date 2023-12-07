@@ -24,11 +24,13 @@ h2{
 }
 .container-seccio{
   margin-inline:20vw;
+  z-index: 1; 
 }
 .container-card {
   display: flex;
   flex-wrap: wrap;
   gap: 2vw;
+  z-index: 1; 
 }
 .card{
   flex-basis: 20vw;

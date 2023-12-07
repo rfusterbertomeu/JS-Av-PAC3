@@ -11,6 +11,10 @@ import { PostDTO } from '../../models/post.dto';
 })
 export class DashboardComponent implements OnInit {
   posts: PostDTO[];
+  dades = [
+    { "name":'Likes', "value":0 },
+    { "name":'Dislikes', "value":0 }
+  ];
   numLikes: number;
   numDislikes: number;
 
@@ -18,7 +22,6 @@ export class DashboardComponent implements OnInit {
     this.posts = new Array<PostDTO>();
     this.numLikes = 0;
     this.numDislikes = 0;
-
     this.store.select('posts').subscribe((posts) => {
       this.posts = posts.posts;
       this.numLikes = 0;
@@ -27,7 +30,12 @@ export class DashboardComponent implements OnInit {
         this.numLikes = this.numLikes + post.num_likes;
         this.numDislikes = this.numDislikes + post.num_dislikes;
       });
+      this.dades = [
+        { "name":'Likes', "value":this.numLikes },
+        { "name":'Dislikes', "value":this.numDislikes }
+      ];
     });
+    
   }
 
   ngOnInit(): void {
@@ -35,6 +43,6 @@ export class DashboardComponent implements OnInit {
   }
 
   private loadPosts(): void {
-    this.store.dispatch(PostsAction.getPosts());
+    this.store.dispatch(PostsAction.getPosts()); 
   }
 }

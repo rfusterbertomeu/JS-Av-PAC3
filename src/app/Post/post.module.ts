@@ -13,8 +13,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,13 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDatepickerModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    MatBadgeModule,  
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
 })
 export class PostModule {}

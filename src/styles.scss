@@ -25,7 +25,18 @@ h2{
 .container-seccio{
   margin-inline:20vw;
 }
-
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+}
+.card{
+  flex-basis: 20vw;
+  text-align: center;
+}
+.btn{
+  margin-inline: 0.5rem ;
+}
 .container-spinner {
   display: flex;
   align-items: center;
@@ -38,4 +49,6 @@ h2{
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000; 
 }
-
+mat-card-action button {
+ margin-block: 2rem ;
+}

@@ -6,6 +6,8 @@ import { SharedService } from 'src/app/Shared/Services/shared.service';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
 import { PostService } from '../../services/post.service';
+import { CardDTO } from 'src/app/Shared/Models/card.dto';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +16,9 @@ import { PostService } from '../../services/post.service';
 })
 export class HomeComponent {
   posts: PostDTO[];
- 
+  postsCards: CardDTO[];
   showButtons: boolean;
+  loadPostsSubscribe: Subscription;
 
   private userId: string;
 
@@ -27,7 +30,7 @@ export class HomeComponent {
     this.userId = '';
     this.posts = new Array<PostDTO>();
     this.showButtons = false;
-
+    this.postsCards = [];
     this.store.select('auth').subscribe((auth) => {
       this.showButtons = false;
 
@@ -40,8 +43,30 @@ export class HomeComponent {
     });
 
     this.store.select('posts').subscribe((posts) => {
-      this.posts = posts.posts;
+      this.postsCards = [];
+      posts.posts.forEach((post) => { 
+        this.postsCards.push({
+          postId: post.postId,
+          title: post.title,
+          description: post.description,
+          userAlias: post.userAlias,
+          categories: post.categories,
+          num_likes:post.num_likes,
+          num_dislikes:post.num_dislikes,
+          imatge: "https://material.angular.io/assets/img/examples/shiba2.jpg",
+          imatge_description: "Photo of a Shiba Inu",
+          publication_date: post.publication_date,
+          showButtons: this.showButtons,
+        });
+      });
+     
     });
+
+    this.loadPostsSubscribe = this.sharedService.loadPosts$.subscribe((res:boolean) => {
+      if(res){
+         this.loadPosts();
+      }
+      });
   }
 
   ngOnInit(): void {
@@ -52,31 +77,4 @@ export class HomeComponent {
     this.store.dispatch(PostsAction.getPosts());
   }
 
-  like(postId: string): void {
-    let errorResponse: any;
-
-    this.postService.likePost(postId).subscribe(
-      () => {
-        this.loadPosts();
-      },
-      (error: HttpErrorResponse) => {
-        errorResponse = error.error;
-        this.sharedService.errorLog(errorResponse);
-      }
-    );
-  }
-
-  dislike(postId: string): void {
-    let errorResponse: any;
-
-    this.postService.dislikePost(postId).subscribe(
-      () => {
-        this.loadPosts();
-      },
-      (error: HttpErrorResponse) => {
-        errorResponse = error.error;
-        this.sharedService.errorLog(errorResponse);
-      }
-    );
-  }
 }

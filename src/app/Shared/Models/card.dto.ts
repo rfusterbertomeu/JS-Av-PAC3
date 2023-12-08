@@ -5,10 +5,11 @@ export class CardDTO {
   title!: string;
   description!: string;
   userAlias!: string;
-  categories!: CategoryDTO;
+  categories!: CategoryDTO[];
   num_likes!:number;
   num_dislikes!:number;
   imatge!: string;
+  imatge_description!: string;
   publication_date!: Date;
   showButtons!: boolean;
 
@@ -20,6 +21,7 @@ export class CardDTO {
     num_likes:number,
     num_dislikes:number,
     imatge: string,
+    imatge_description: string,
     publication_date: Date,
     showButtons: boolean
   ) {
@@ -30,6 +32,7 @@ export class CardDTO {
       this.num_likes = num_likes;  
       this.num_dislikes = num_dislikes; 
       this.imatge = imatge; 
+      this.imatge_description = imatge_description; 
       this.publication_date = publication_date;       
       this.showButtons = showButtons;
     }

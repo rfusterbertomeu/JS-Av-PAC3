@@ -1,66 +1,6 @@
 <h2>All posts</h2>
 <div class="container-card">
-  <!--div *ngFor="let post of posts" >
+  <div *ngFor="let post of postsCards" class="card">
     <app-card [item]="post"></app-card>
-  </div-->
-  <mat-card *ngFor="let post of posts" class="card">
-    <mat-card-header>
-      <mat-card-title>{{ post.title }}
-
-      </mat-card-title>
-      <mat-card-subtitle>Published by: {{ post.userAlias }} <br>
-        <span *ngFor="let category of post.categories" class="badge"
-          [ngStyle]="{ 'background-color': category.css_color }">
-          {{ category.title }}
-        </span>
-      </mat-card-subtitle>
-
-      <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu">
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{ post.description }}
-      </p>
-    </mat-card-content>
-    <mat-divider></mat-divider>
-    <mat-card-actions align="end">
-      <div class="btn"><button mat-raised-button color="primary" matBadge="{{ post.num_likes}}"
-          matBadgePosition="before" matBadgeColor="accent" (click)="like(post.postId)" [disabled]="!showButtons">
-          Like
-        </button></div>
-      <div class="btn">
-        <button mat-raised-button matBadge="{{post.num_dislikes}}" matBadgePosition="before" matBadgeColor="warn"
-          (click)="dislike(post.postId)" [disabled]="!showButtons">
-          Dislike
-        </button>
-      </div>
-    </mat-card-actions>
-    <mat-card-footer>
-      Publication date: {{ post.publication_date | formatDate: 3 }}
-    </mat-card-footer>
-  </mat-card>
-  <!--div class="container">
-      <div>
-        <span *ngFor="let category of post.categories" class="badge"
-          [ngStyle]="{ 'background-color': category.css_color }">
-          {{ category.title }}
-        </span>
-      </div>
-    </div>
-
-    <h4>
-      <b>Title: {{ post.title }}</b>
-    </h4>
-    <p>Description: {{ post.description }}</p>
-    <p>Likes: {{ post.num_likes }}</p>
-    <p>Dislikes: {{ post.num_dislikes }}</p>
-    <p>Publication date: {{ post.publication_date | formatDate: 3 }}</p>
-    <p>Published by: {{ post.userAlias }}</p>
-
-    <div *ngIf="showButtons">
-      <button (click)="like(post.postId)">Like</button>
-      <button (click)="dislike(post.postId)">Dislike</button>
-    </div-->
-
+  </div>
 </div>

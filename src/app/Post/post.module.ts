@@ -19,7 +19,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { CardComponent } from '../Shared/Components/card/card.component';
+import { MatChipsModule } from '@angular/material/chips';
 @NgModule({
   declarations: [
     PostsListComponent,
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     FormatDatePipe,
     DashboardComponent,
+    CardComponent
   ],
   imports: [
     CommonModule, 
@@ -39,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     MatIconModule,
     MatCardModule,
+    MatChipsModule,
     MatDividerModule,
     MatBadgeModule,  
     BrowserModule,

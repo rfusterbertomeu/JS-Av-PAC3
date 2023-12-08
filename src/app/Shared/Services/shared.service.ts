@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 
 export interface ResponseError {
   statusCode: number;
@@ -16,6 +16,7 @@ export interface ResponseError {
   providedIn: 'root',
 })
 export class SharedService {
+  private loadPostsSubject = new Subject<boolean>();
   constructor() {}
 
   async managementToast(
@@ -70,5 +71,9 @@ export class SharedService {
 
   handleError(error: HttpErrorResponse) {
     return throwError(error);
+  }
+  loadPosts$ = this.loadPostsSubject.asObservable();
+  loadPosts(resposta: boolean) {
+    this.loadPostsSubject.next(resposta);
   }
 }

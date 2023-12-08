@@ -12,23 +12,16 @@ import { appReducers, EffectsArray } from './app.reducers';
 import { AuthModule } from './Auth/auth.module';
 import { CategoryModule } from './Category/category.module';
 import { PostModule } from './Post/post.module';
+import { FooterComponent } from './Shared/Components/footer/footer.component';
 import { HeaderComponent } from './Shared/Components/header/header.component';
 import { AuthInterceptorService } from './Shared/Services/auth-interceptor.service';
 import { UserModule } from './User/user.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './Shared/Components/spinner/spinner.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { CardComponent } from './Shared/Components/card/card.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatBadgeModule } from '@angular/material/badge';
-import { FormatDatePipe } from './Shared/Pipes/format-date.pipe';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SpinnerComponent, CardComponent,
-    FormatDatePipe],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, SpinnerComponent],
 
   imports: [
     BrowserModule,
@@ -50,14 +43,9 @@ import { FormatDatePipe } from './Shared/Pipes/format-date.pipe';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    BrowserAnimationsModule,
-    MatProgressSpinnerModule,
-    MatButtonModule,
     MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatDividerModule,
-    MatBadgeModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

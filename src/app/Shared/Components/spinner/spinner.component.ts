@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.reducers';
+import { LoaderService } from '../../Services/loader.service';
 
 @Component({
   selector: 'app-spinner',
@@ -10,18 +11,10 @@ import { AppState } from 'src/app/app.reducers';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent {
-  loading_auth$: Observable<boolean>;
-  loading_user$: Observable<boolean>;
-  loading_categories$: Observable<boolean>;
-  loading_posts$: Observable<boolean>;
+  getLoading: Observable<boolean>;
   constructor(
-    private store: Store<AppState>
+    loadingService: LoaderService
   ) {
-    this.loading_auth$ = this.store.select('auth').pipe(map(auth => auth.loading));
-    this.loading_user$ = this.store.select('user').pipe(map(user => user.loading));
-    this.loading_categories$ = this.store.select('categories').pipe(map(categories => categories.loading));
-    this.loading_posts$ = this.store.select('posts').pipe(map(posts => posts.loading));
-
+    this.getLoading = loadingService.loadingAuth$ || loadingService.loadingCategories$ || loadingService.loadingPosts$ || loadingService.loadingUser$;
   }
 }
-

@@ -11,30 +11,39 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() item: CardDTO = new CardDTO('', '', '', '' , 0, 0, '', new Date(), false);
-
+  @Input() item: CardDTO = {
+    postId: '',
+    title: '',
+    description: '',
+    userAlias: '',
+    categories: [],
+    num_likes: 0,
+    num_dislikes: 0,
+    imatge: '',
+    imatge_description: '',
+    publication_date: new Date(),
+    showButtons: false
+  };
 
   constructor(
     private postService: PostService,
-    private sharedService: SharedService){}
-  ngOnInit():void {}
+    private sharedService: SharedService
+  ){}
 
+  ngOnInit():void {}
   
   like(postId: string): void {
     let errorResponse: any;
 
     this.postService.likePost(postId).subscribe(
       () => {
-        this.loadPosts();
+        this.sharedService.loadPosts(true);
       },
       (error: HttpErrorResponse) => {
         errorResponse = error.error;
         this.sharedService.errorLog(errorResponse);
       }
     );
-  }
-  loadPosts() {
-    throw new Error('Method not implemented.');
   }
 
   dislike(postId: string): void {
@@ -42,12 +51,17 @@ export class CardComponent implements OnInit {
 
     this.postService.dislikePost(postId).subscribe(
       () => {
-        this.loadPosts();
+        this.sharedService.loadPosts(true);
       },
       (error: HttpErrorResponse) => {
         errorResponse = error.error;
         this.sharedService.errorLog(errorResponse);
       }
     );
+  } 
+
+  loadPosts() {
+    throw new Error('Method not implemented.');
   }
 }
+
